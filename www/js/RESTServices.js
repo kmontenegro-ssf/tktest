@@ -12,7 +12,6 @@ service.create = function (user) {
 };
 service.login = function(user) {
   return $http.post(getUrl()+"login",user);
-  
 };
 service.logout = function(token) {
    return $http({
@@ -23,7 +22,6 @@ service.logout = function(token) {
       }
    });
 };
-
 }])
 .service('ServerQuestionService', ['$http', 'ENDPOINT_URL',
 function ($http,  ENDPOINT_URL) {

@@ -2,6 +2,7 @@ angular.module('starter.controllers', [ ])
 
 .controller('LoginCtrl', [ '$scope', '$state', 'UserService', '$ionicHistory', '$window',
     function($scope, $state, UserService, $ionicHistory, $window) {
+
     $scope.user = {};
 
     $scope.loginSubmitForm = function(form)
@@ -13,10 +14,13 @@ angular.module('starter.controllers', [ ])
                     $window.localStorage["userID"] = response.data.userId;
                     $window.localStorage['token'] = response.data.id;
                     alert("it got past window.localstorage");
+                    //Should return a token
+                    console.log(response);
                     $ionicHistory.nextViewOptions({
                       historyRoot: true,
                       disableBack: true
                     });
+
                    $state.go('lobby');
                     alert("I got past $state.go");
                 } else {
@@ -29,15 +33,12 @@ angular.module('starter.controllers', [ ])
                 {
                     alert("Incorrect username or password");
                 }else if(response.data === null) {
-//If the data is null, it means there is no internet connection. 
+                //If the data is null, it means there is no internet connection. 
                     alert("The connection with the server was unsuccessful, check your internet connection and try again later.");
                 }else {
                     alert(response.data+ " Yes Something went wrong, try again.");
                 }
-
             });
-
-            
         }
     };
 }])
@@ -103,7 +104,6 @@ angular.module('starter.controllers', [ ])
             }
             else{ alert("invalid");}
         }
-        
     }])
     
 .controller('LobbyCtrl',['$scope', '$state', '$ionicHistory', 'UserService', '$window', 
@@ -203,4 +203,3 @@ function($scope, testInfo, $stateParams, $state) {
             };
 
 }]);
-
