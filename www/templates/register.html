@@ -1,0 +1,30 @@
+<ion-view view-title="Register">
+    <ion-content class="padding">
+         <form name="registerForm" novalidate ng-submit="registerSubmitForm(registerForm)">
+        <div class="list">
+            <label class="item item-input" ng-class="{ 'has-errors' : registerForm.email.$invalid && registerForm.$submitted}">
+                <input name="email" type="email" placeholder="Email"  ng-model="reg.email" required>
+            </label>
+            <label class="item item-input" ng-class="{ 'has-errors' : registerForm.firstName.$invalid && registerForm.$submitted}">
+                <input name="firstName" type="text" placeholder="First Name"  ng-model="reg.firstName" required>
+            </label>
+            
+            <label class="item item-input" ng-class="{ 'has-errors' : registerForm.lastName.$invalid && registerForm.$submitted}">
+                <input name="lastName" type="text" placeholder="Last Name"  ng-model="reg.lastName" required>
+            </label>
+            <label class="item item-input">
+                <input name="company" type="text" placeholder="Company (Optional)" ng-model="reg.company">
+            </label>
+            <label class="item item-input" ng-class="{ 'has-errors' : registerForm.password.$invalid && registerForm.$submitted}">
+                <input name="password" type="password" placeholder="Password"  ng-model="reg.password" required>
+            </label>
+            <label class="item item-input" ng-class="{ 'has-errors' : registerForm.password.$invalid && registerForm.$submitted}">
+                <input name="password" type="password" placeholder="Repeat password"  ng-model="repeatPassword.password" required>
+            </label>
+        </div>
+        <button type="submit" class="button button-block button-positive">
+            Sign up
+        </button>
+        </form>
+    </ion-content>
+</ion-view>
